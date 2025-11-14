@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Elites Time-Table</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+</head>
+<body>
+    <div>
+        <header>
+            <img src="logo.jpg" alt="logo" height="70px" class="logo">
+            <h3>Department of Geosciences, University of Lagos (Geo-Elites)</h3>
+        </header>
+        <div class="main">
+            <p class="p">Empowering young geoscientists with knowledge and discovery. <br> Clcik on a day below to see your lectures.</p>
+            <div class="btn">
+                <button id="tod">Today's Lectures</button> <button id="monbtn" onclick="show('mon')">Monday</button> <button id="tuebtn" onclick="show('tue')">Tuesday</button> <button id="wedbtn" onclick="show('wed')">Wednesday</button> <button id="thubtn" onclick="show('thu')">Thursday</button> <button id="fribtn" onclick="show('fri')">Friday</button>
+            </div>
+            <div class="bod" id="list"></div>
+        </div>
+        <footer>
+            &copy; 2025 Geo-Elites | Designed by Nelson
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</html>
