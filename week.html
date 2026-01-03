@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Elites Time-Table - Week View</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.jpg" type="image/jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div>
+            <h3 class="h31">Geo-Elites Time-Table</h3>
+            <h3 id="day-name"></h3>
+            <h3 id="dmy"></h3>
+        </div>
+        <div class="lv">
+            <h3>200L</h3>
+        </div>
+    </nav>
+
+    <main class="week-main">
+        <div class="week-container">
+            <h2 class="week-title">
+                <i data-lucide="calendar" style="width: 24px; height: 24px;"></i>
+                Weekly Schedule
+            </h2>
+
+            <!-- Monday -->
+            <div class="day-section">
+                <h3 class="day-header">MONDAY</h3>
+                <div class="day-classes" id="monday-classes">
+                    <!-- Classes will be inserted here by JS -->
+                </div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="day-section">
+                <h3 class="day-header">TUESDAY</h3>
+                <div class="day-classes" id="tuesday-classes">
+                    <!-- Classes will be inserted here by JS -->
+                </div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="day-section">
+                <h3 class="day-header">WEDNESDAY</h3>
+                <div class="day-classes" id="wednesday-classes">
+                    <!-- Classes will be inserted here by JS -->
+                </div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="day-section">
+                <h3 class="day-header">THURSDAY</h3>
+                <div class="day-classes" id="thursday-classes">
+                    <!-- Classes will be inserted here by JS -->
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="day-section">
+                <h3 class="day-header">FRIDAY</h3>
+                <div class="day-classes" id="friday-classes">
+                    <!-- Classes will be inserted here by JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bottom-nav">
+        <nav class="bottom-nav__container">
+            <!-- Today -->
+            <button id="todayBtn" class="bottom-nav__item">
+                <a href="index.html">
+                    <i data-lucide="list" class="icon"></i>
+                    <span>Today</span>
+                </a>
+            </button>
+
+            <!-- Week -->
+            <button id="weekBtn" class="bottom-nav__item active">
+                <a href="week.html">
+                    <i data-lucide="calendar" class="icon"></i>
+                    <span>Full Week</span>
+                </a>
+            </button>
+        </nav>
+    </footer>
+
+    <script src="week.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

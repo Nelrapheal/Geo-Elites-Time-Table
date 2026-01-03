@@ -5,25 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geo-Elites Time-Table</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="logo.jpg" type="image/jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div>
-        <header>
-            <img src="logo.jpg" alt="logo" height="70px" class="logo">
-            <h3>Department of Geosciences, University of Lagos (Geo-Elites)</h3>
-        </header>
-        <div class="main">
-            <p class="p">Empowering young geoscientists with knowledge and discovery. <br> Clcik on a day below to see your lectures.</p>
-            <div class="btn">
-                <button id="tod">Today's Lectures</button> <button id="monbtn" onclick="show('mon')">Monday</button> <button id="tuebtn" onclick="show('tue')">Tuesday</button> <button id="wedbtn" onclick="show('wed')">Wednesday</button> <button id="thubtn" onclick="show('thu')">Thursday</button> <button id="fribtn" onclick="show('fri')">Friday</button>
-            </div>
-            <div class="bod" id="list"></div>
+    <nav class="top-nav">
+        <div>
+            <h3 class="h31">Geo-Elites Time-Table</h3>
+            <h3 id="day-name"></h3>
+            <h3 id="dmy"></h3>
         </div>
-        <footer>
-            &copy; 2025 Geo-Elites | Designed by Nelson
-        </footer>
-    </div>
+        <div class="lv">
+            <h3>200L</h3>
+        </div>
+    </nav>
+
+    <main style="display: flex; align-items: center; justify-content: center; padding: 20px;">
+        <div style="width: 400px; max-width: 440px;">
+            
+            <!-- Enhanced Class Card -->
+            <div class="card" id="classCard">
+                <!-- Book icon (shows when no class) -->
+                <i data-lucide="book-open" class="i" id="bookIcon"></i>
+                
+                <!-- Status Badge (shows when there's class) -->
+                <div class="status-badge" id="statusBadge" style="display: none;">
+                    <span class="status-dot"></span>
+                    <span id="statusText">CLASS ONGOING</span>
+                </div>
+
+                <!-- Countdown Timer (shows when there's class) -->
+                <div class="countdown" id="countdown">
+                    <div class="countdown-time" id="countdownTime">45m</div>
+                    <div class="countdown-label" id="countdownLabel">remaining</div>
+                </div>
+
+                <!-- Course Information -->
+                <h2 class="course-code" id="courseCode">Weekend Vibes</h2>
+                <p class="course-title" id="courseTitle">No class schedule today</p>
+
+                <!-- Time Display -->
+                <div class="time-display">
+                    <i data-lucide="clock" class="clock-icon"></i>
+                    <span id="classTime">Enjoy your break</span>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="tt">
+                <p style="display: flex; justify-content: center; align-items: center; gap: 10px; font-weight: bold;">
+                    <i data-lucide="clock" class="clock"></i>
+                    Today's Timeline
+                </p>
+                <p id="time"></p>
+            </div>
+
+            <!-- Schedule List -->
+            <ul id="lis"></ul>
+        </div>
+    </main>
+
+    <footer class="bottom-nav">
+        <nav class="bottom-nav__container">
+            <button id="todayBtn" class="bottom-nav__item active">
+                <a href="index.html">
+                    <i data-lucide="list" class="icon"></i>
+                    <span>Today</span>
+                </a>
+            </button>
+            <button id="weekBtn" class="bottom-nav__item">
+                <a href="week.html">
+                    <i data-lucide="calendar" class="icon"></i>
+                    <span>Full Week</span>
+                </a>
+            </button>
+        </nav>
+    </footer>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>

@@ -1,90 +1,532 @@
-*{
-    padding: 0;
+body {
     margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
 }
 
-body{
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) ,url('back.jpg') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: Arial, Helvetica, sans-serif;
+/* Top Navigation */
+.top-nav {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    color: rgb(0, 221, 0);
+    background-color: #103020;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 0 0 40px 40px;
+    position: relative;
+    z-index: 10;
 }
 
-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(2px);
-    padding: 6px;
-    margin: 10px;
-    border-radius: 20px;
+.top-nav h3 {
+    margin: 5px;
+    padding: 0 10px;
+    margin-top: 10px;
 }
 
-.logo{
-    border-radius: 30%;
-    padding: 10px;
-}
-
-.p{
+.h31 {
+    font-size: 20px;
     font-weight: bold;
 }
 
-button{
-    background-color: #062B1E;
-    color: #D9B468;
-    border: none;
-    padding: 10px 20px;
+#day-name {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    color: orange;
+    font-weight: bold;
+}
+
+#dmy {
+    font-size: 14px;
     margin-top: 20px;
-    border-radius: 10px;
-    color: rgb(0, 221, 0);
-}
-
-.main{
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px);
-    margin: 10px;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 13px;
-    font-size: 14.7px;
-}
-
-.btn{
-    margin-bottom: 40px;
-}
-
-.bod{
-    background: rgba(255, 255, 255, 0.25);
-    padding: 20px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    display: block;
-    text-align: start;
-}
-
-li{
-    list-style: none;
-    background: linear-gradient(to right, #062B1E, #D9B468);
-    padding: 10px;
-    border-radius: 20px;
-    padding-left: 30px;
-    font-weight: bold;
-    color: #D9B468;
+    color: rgb(101, 187, 101);
     margin-bottom: 20px;
 }
 
+.lv {
+    padding: 5px 10px;
+    background-color: #1f573b;
+    border-radius: 5px;
+}
 
+.lv h3 {
+    font-size: 13px;
+    color: rgb(112, 212, 112);
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+}
 
-footer{
+/* Enhanced Class Card - Default (No Class) */
+.card {
+    margin-top: -40px;
+    padding: 30px;
+    height: auto;
+    min-height: 220px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 20;
+    background-color: white;
+    color: #1f2937;
+    transition: all 0.3s ease;
+}
+
+/* When there's a class - green gradient */
+.card.has-class {
+    background: linear-gradient(135deg, #0f4c2e 0%, #1a5c3a 100%);
+    color: white;
+    text-align: left;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(16, 185, 129, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    color: #059669;
+}
+
+.card.has-class .status-badge {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    margin-bottom: 15px;
+}
+
+.status-badge .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.card.has-class .status-dot {
+    background-color: #4ade80;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Countdown Timer */
+.countdown {
+    text-align: center;
+    display: none;
+    margin: 30px 0 20px 0;
+}
+
+.card.has-class .countdown {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    text-align: right;
+    margin: 0;
+}
+
+.countdown-time {
+    font-size: 48px;
     font-weight: bold;
-    color: #062B1E;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: #fbbf24;
+}
+
+.countdown-label {
+    font-size: 12px;
+    opacity: 0.8;
+    text-transform: lowercase;
+    color: #6b7280;
+}
+
+.card.has-class .countdown-label {
+    color: white;
+}
+
+/* Course Code */
+.course-code {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 8px 0;
+    letter-spacing: 1px;
+    color: #1f2937;
+}
+
+.card.has-class .course-code {
+    color: white;
+    font-size: 32px;
+    margin: 20px 0 10px 0;
+}
+
+/* Course Title */
+.course-title {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: #059669;
+}
+
+.card.has-class .course-title {
+    opacity: 0.9;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* Time Display */
+.time-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    opacity: 0.7;
+    justify-content: center;
+}
+
+.card.has-class .time-display {
+    opacity: 0.85;
+    justify-content: flex-start;
+}
+
+.time-display .clock-icon {
+    width: 18px;
+    height: 18px;
+    color: #059669;
+}
+
+.card.has-class .time-display .clock-icon {
+    color: white;
+}
+
+/* Book icon for no class */
+.i {
+    margin: 0 auto 20px;
+    display: block;
+    height: 50px;
+    width: 50px;
+    color: #10b981;
+}
+
+/* Timeline Section */
+.tt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tt p:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.clock {
+    height: 18px;
+    width: 18px;
+    color: #059669;
+}
+
+#time {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+/* Schedule List */
+#lis {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 100px 0;
+    width: 100%;
+}
+
+#lis li {
+    background-color: #ffffff;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border-left: 4px solid #10b981;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2937;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+#lis li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+#lis li strong {
+    color: #059669;
+    font-size: 15px;
+}
+
+#lis li small {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* Empty State */
+#lis.empty-state {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 14px;
+    padding: 40px 20px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 0.1px solid #1c613e33;
+    z-index: 50;
+}
+
+.bottom-nav__container {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+}
+
+.bottom-nav__item {
+    background: none;
+    border: none;
+    color: gray;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 8px 20px;
+}
+
+.bottom-nav__item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-nav__item.active {
+    font-weight: 600;
+    color: #1c613f;
+}
+
+.bottom-nav__item .icon {
+    width: 24px;
+    height: 24px;
+}
+
+.bottom-nav__item:focus {
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .card {
+        width: calc(100vw - 40px);
+        padding: 25px 20px;
+    }
+
+    .countdown {
+        top: 25px;
+        right: 20px;
+    }
+
+    .countdown-time {
+        font-size: 36px;
+    }
+
+    .course-code {
+        font-size: 26px;
+    }
+
+    .course-title {
+        font-size: 14px;
+    }
+}
+
+/* ==================== WEEK VIEW STYLES ==================== */
+
+.week-main {
+    padding: 20px;
+    padding-bottom: 100px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.week-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.week-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #103020;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.day-section {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.day-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.day-classes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.class-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    border-left: 4px solid #10b981;
+    transition: all 0.2s ease;
+}
+
+.class-item:hover {
+    background-color: #f0fdf4;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.class-info {
+    flex: 1;
+}
+
+.class-code {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.class-name {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+.class-time-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.time-start {
+    font-size: 16px;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.time-end {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.no-classes {
+    text-align: center;
+    padding: 30px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .card {
+        width: calc(100vw - 40px);
+        padding: 25px 20px;
+    }
+
+    .countdown {
+        top: 25px;
+        right: 20px;
+    }
+
+    .countdown-time {
+        font-size: 36px;
+    }
+
+    .course-code {
+        font-size: 26px;
+    }
+
+    .course-title {
+        font-size: 14px;
+    }
+
+    .week-main {
+        padding: 15px;
+    }
+
+    .week-title {
+        font-size: 20px;
+    }
+
+    .day-section {
+        padding: 16px;
+    }
+
+    .class-item {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .class-time-badge {
+        align-items: flex-start;
+    }
 }
